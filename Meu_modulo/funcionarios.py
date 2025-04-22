@@ -34,3 +34,16 @@ class Gerente(Funcionario):
 
     def calcular_bonus(self):
         return self.get_salario() * 0.20 + self.bonus_adicional
+
+def logar_acao(func):
+    def wrapper(*args, **kwargs):
+        result = func(*args, **kwargs)
+        print(f"Ação executada: {func.__name__} - Resultado: {result}")
+        return result
+    return wrapper
+
+class SistemaRH:
+    @logar_acao
+    def mostrar_bonus(self, funcionario):
+        bonus = funcionario.calcular_bonus()
+        print(f"Funcionário: {funcionario.get_nome()}, Bônus: {bonus}")
