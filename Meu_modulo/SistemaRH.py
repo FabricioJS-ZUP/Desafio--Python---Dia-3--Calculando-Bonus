@@ -1,6 +1,6 @@
 def logar_acao(func):
     def wrapper(*args, **kwargs):
-        print("Exibindo bônus do funcionário.")
+        print(" Exibindo bônus do funcionário.")
         return func(*args, **kwargs)
     return wrapper
 
